@@ -2,10 +2,10 @@ package com.example.eschool.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.api.R;
 import com.example.eschool.domain.Student;
 import com.example.eschool.service.StudentService;
 import com.example.eschool.utils.Result;
-import org.apache.ibatis.annotations.Lang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,5 +50,39 @@ public class StudentController {
           return Result.success(student);
     }
 
+    //查询一卡通、热水余额
+    @GetMapping("/inquire")
+    public Result<Student> inquire(@RequestParam Integer sid){
+        LambdaQueryWrapper<Student> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Student::getSid,sid);
+        Student stu = studentService.getOne(queryWrapper);
+        if(stu == null){
+            return Result.error("0","学生不存在");
+        }
+        return Result.success(stu,"查询成功");
+    }
 
+    //充值一卡通，热水
+    @PostMapping("/recharge")
+    public Result<Student> recharge(@RequestBody Map map){
+        String sid = map.get("sid").toString();
+        Double amount = Double.parseDouble(map.get("amount").toString());
+        String type = map.get("type").toString();
+        LambdaQueryWrapper<Student> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Student::getSid,sid);
+        Student stu = studentService.getOne(queryWrapper);
+        if(stu == null){
+            return Result.error("0","无此学生");
+        }
+        System.out.println(amount);
+        System.out.println(stu.getCardAmount());
+        if(type.equals("一卡通")){
+            stu.setCardAmount(stu.getCardAmount()+amount);
+        }
+        if(type.equals("热水")){
+            stu.setHotWater(stu.getHotWater()+amount);
+        }
+        studentService.updateById(stu);
+        return Result.success(stu,"充值成功");
+    }
 }

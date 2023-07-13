@@ -17,11 +17,13 @@ public class DormController {
 
     @Autowired
     private DormService dormService;
+
+    //充值水电费
     @PostMapping("/recharge")
     public Result<Dorm> addWater(@RequestBody Map map){
         String building = map.get("building").toString();
         String room = map.get("room").toString();
-        Double amount = (Double)map.get("amount");
+        Double amount = Double.parseDouble(map.get("amount").toString());
         String type = map.get("type").toString();
         LambdaQueryWrapper<Dorm> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Dorm::getBuilding,building);
@@ -39,6 +41,7 @@ public class DormController {
         return Result.success(dorm,"充值成功");
     }
 
+    //查询水电费
     @GetMapping("/inquire")
     public Result<Dorm> inquire(@RequestBody Map map){
         String building = map.get("building").toString();
