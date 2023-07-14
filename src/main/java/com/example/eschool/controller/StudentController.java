@@ -3,6 +3,7 @@ package com.example.eschool.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
+import com.example.eschool.domain.Business;
 import com.example.eschool.domain.Student;
 import com.example.eschool.service.StudentService;
 import com.example.eschool.utils.Result;
@@ -46,6 +47,14 @@ public class StudentController {
 //        String password = map.get("password").toString();
 //        LambdaQueryWrapper queryWrapper = new LambdaQueryWrapper<>();
 //        queryWrapper.eq(Student::
+
+        String sid = student.getSid().toString();
+        LambdaQueryWrapper<Student> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Student::getSid,sid);
+        Student old = studentService.getOne(queryWrapper);
+        if (old != null){
+            return Result.error("0","用户已存在");
+        }
           studentService.save(student);
           return Result.success(student);
     }
