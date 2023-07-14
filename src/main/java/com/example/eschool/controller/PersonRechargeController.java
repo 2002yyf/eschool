@@ -21,7 +21,7 @@ public class PersonRechargeController {
     private PersonRechargeService personRechargeService;
 
     //按类型和查询用户一卡通或热水充值记录
-    @GetMapping("/list")
+    @PostMapping("/list")
     public Result<List<PersonRecharge>> list(@RequestBody Map map){
         String sid = map.get("sid").toString();
         String type = map.get("type").toString();
