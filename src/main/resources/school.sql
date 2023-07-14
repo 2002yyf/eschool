@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 14/07/2023 10:18:15
+ Date: 14/07/2023 10:55:27
 */
 
 SET NAMES utf8mb4;
@@ -60,18 +60,26 @@ INSERT INTO `dorm` VALUES (1, 1, 101, 173.8, 49.5);
 -- ----------------------------
 DROP TABLE IF EXISTS `dorm_recharge`;
 CREATE TABLE `dorm_recharge`  (
-  `rid` int(0) NOT NULL COMMENT 'id',
-  `did` int(0) NOT NULL COMMENT '宿舍id',
+  `rid` int(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `building` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '楼号',
+  `room` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '宿舍号',
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '类型',
   `amount` double(10, 1) NULL DEFAULT NULL COMMENT '充值金额',
   `buyer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '充值的人',
-  `time` time(0) NULL DEFAULT NULL COMMENT '充值时间',
+  `time` datetime(0) NULL DEFAULT NULL COMMENT '充值时间',
   PRIMARY KEY (`rid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dorm_recharge
 -- ----------------------------
+INSERT INTO `dorm_recharge` VALUES (1, '3', '202', '水', 50.0, '张三', '2023-07-14 10:40:37');
+INSERT INTO `dorm_recharge` VALUES (2, '3', '202', '电', 62.3, '李四', '2023-07-12 10:40:57');
+INSERT INTO `dorm_recharge` VALUES (3, '2', '202', '水', 60.3, '王五', '2023-07-06 10:41:18');
+INSERT INTO `dorm_recharge` VALUES (4, '3', '202', '水', 60.3, '李四', '2023-07-03 10:41:32');
+INSERT INTO `dorm_recharge` VALUES (5, '3', '202', '水', 35.2, NULL, '2023-07-14 10:52:03');
+INSERT INTO `dorm_recharge` VALUES (6, '3', '202', '水', 35.2, '张三', '2023-07-14 10:52:17');
+INSERT INTO `dorm_recharge` VALUES (7, '3', '202', '水', 35.2, '张三', '2023-07-14 10:52:47');
 
 -- ----------------------------
 -- Table structure for person_recharge
