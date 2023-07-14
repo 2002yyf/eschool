@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 14/07/2023 10:01:14
+ Date: 14/07/2023 10:18:15
 */
 
 SET NAMES utf8mb4;
@@ -56,6 +56,24 @@ CREATE TABLE `dorm`  (
 INSERT INTO `dorm` VALUES (1, 1, 101, 173.8, 49.5);
 
 -- ----------------------------
+-- Table structure for dorm_recharge
+-- ----------------------------
+DROP TABLE IF EXISTS `dorm_recharge`;
+CREATE TABLE `dorm_recharge`  (
+  `rid` int(0) NOT NULL COMMENT 'id',
+  `did` int(0) NOT NULL COMMENT '宿舍id',
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '类型',
+  `amount` double(10, 1) NULL DEFAULT NULL COMMENT '充值金额',
+  `buyer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '充值的人',
+  `time` time(0) NULL DEFAULT NULL COMMENT '充值时间',
+  PRIMARY KEY (`rid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of dorm_recharge
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for person_recharge
 -- ----------------------------
 DROP TABLE IF EXISTS `person_recharge`;
@@ -76,15 +94,6 @@ INSERT INTO `person_recharge` VALUES (2, 1, '一卡通', 30.0, NULL);
 INSERT INTO `person_recharge` VALUES (3, 2, '热水', 50.0, NULL);
 INSERT INTO `person_recharge` VALUES (4, 1, '热水', 4.3, NULL);
 INSERT INTO `person_recharge` VALUES (5, 1, '热水', 50.0, '2023-07-14 09:59:27');
-INSERT INTO `person_recharge` VALUES (6, 1, '热水', 50.0, '2023-07-14 09:59:31');
-INSERT INTO `person_recharge` VALUES (7, 1, '热水', 50.0, '2023-07-14 09:59:33');
-INSERT INTO `person_recharge` VALUES (8, 1, '热水', 50.0, '2023-07-14 09:59:33');
-INSERT INTO `person_recharge` VALUES (9, 1, '热水', 50.0, '2023-07-14 09:59:34');
-INSERT INTO `person_recharge` VALUES (10, 1, '热水', 50.0, '2023-07-14 09:59:34');
-INSERT INTO `person_recharge` VALUES (11, 1, '热水', 50.0, '2023-07-14 09:59:35');
-INSERT INTO `person_recharge` VALUES (12, 1, '热水', 50.0, '2023-07-14 09:59:35');
-INSERT INTO `person_recharge` VALUES (13, 1, '热水', 50.0, '2023-07-14 09:59:35');
-INSERT INTO `person_recharge` VALUES (14, 1, '热水', 50.0, '2023-07-14 09:59:38');
 
 -- ----------------------------
 -- Table structure for student
@@ -106,11 +115,8 @@ CREATE TABLE `student`  (
 -- ----------------------------
 -- Records of student
 -- ----------------------------
-INSERT INTO `student` VALUES (1, NULL, '123', NULL, NULL, NULL, 363.8, 1909.0, NULL);
-INSERT INTO `student` VALUES (2, NULL, '456', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `student` VALUES (6, NULL, '123', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `student` VALUES (7, NULL, '123', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `student` VALUES (17, NULL, '12', NULL, NULL, '101', NULL, NULL, NULL);
-INSERT INTO `student` VALUES (100, NULL, '12', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `student` VALUES (1, '张三', '123', '2020', '4', '503', 363.8, 1909.0, '10086');
+INSERT INTO `student` VALUES (2, '李四', '456', '2021', '5', '602', 345.3, 20.3, '10087');
+INSERT INTO `student` VALUES (6, '王五', '123', '2022', '6', '102', 65.0, 35.0, '10088');
 
 SET FOREIGN_KEY_CHECKS = 1;
