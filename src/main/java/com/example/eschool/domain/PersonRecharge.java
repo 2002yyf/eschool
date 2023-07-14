@@ -1,5 +1,6 @@
 package com.example.eschool.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -8,7 +9,8 @@ import java.time.LocalDateTime;
 
 @Data
 public class PersonRecharge implements Serializable {
-    @TableId
+    @TableId(type = IdType.AUTO)
+    private Integer rid;
     private Integer sid;
     private String type;
     private Double amount;
