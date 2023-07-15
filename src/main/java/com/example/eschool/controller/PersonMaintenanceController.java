@@ -34,23 +34,23 @@ public class PersonMaintenanceController {
         return Result.success(result,"查询成功");
     }
 
-//    //新增个人维修记录
-//    @PostMapping("/add")
-//    public Result<PersonRecharge> add (@RequestBody PersonRecharge personRecharge){
-////        String sid = map.get("sid").toString();
-////        String type = map.get("type").toString();
-////        Double amount = Double.parseDouble(map.get("amount").toString());
-//
-//        LocalDateTime now = LocalDateTime.now();
-//        personRecharge.setTime(now);
-//        personRechargeService.save(personRecharge);
-//        return Result.success(personRecharge,"新增成功");
-//
-////        queryWrapper.eq(PersonRecharge::getSid,sid);
-////        queryWrapper.eq(PersonRecharge::getType,type);
-////        queryWrapper.eq(PersonRecharge::getSid,sid);
-////        queryWrapper.eq(PersonRecharge::getSid,sid);
-//
-//    }
+    //新增个人维修记录
+    @PostMapping("/add")
+    public Result<PersonMaintenance> add (@RequestBody PersonMaintenance personMaintenance){
+//        String sid = map.get("sid").toString();
+//        String type = map.get("type").toString();
+//        Double amount = Double.parseDouble(map.get("amount").toString());
+
+        LocalDateTime now = LocalDateTime.now();
+        personMaintenance.setTime(now);
+        personMaintenanceService.save(personMaintenance);
+        return Result.success(personMaintenance,"新增成功");
+
+//        queryWrapper.eq(PersonRecharge::getSid,sid);
+//        queryWrapper.eq(PersonRecharge::getType,type);
+//        queryWrapper.eq(PersonRecharge::getSid,sid);
+//        queryWrapper.eq(PersonRecharge::getSid,sid);
+
+    }
 
 }
