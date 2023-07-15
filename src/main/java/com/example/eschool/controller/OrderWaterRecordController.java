@@ -2,8 +2,8 @@ package com.example.eschool.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.example.eschool.domain.DormRecharge;
 import com.example.eschool.domain.OrderWaterRecord;
+import com.example.eschool.domain.PersonMaintenance;
 import com.example.eschool.service.OrderWaterRecordService;
 import com.example.eschool.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class OrderWaterRecordController {
     @Autowired
     private OrderWaterRecordService orderWaterRecordService;
 
-    //按类型和查询宿舍水、电费充值记录
+    //按宿舍楼号、寝室号查询订水记录
     @PostMapping("/list")
     public Result<List<OrderWaterRecord>> list(@RequestBody Map map){
         String building = map.get("building").toString();
@@ -29,10 +29,13 @@ public class OrderWaterRecordController {
         LambdaQueryWrapper<OrderWaterRecord> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(OrderWaterRecord::getBuilding,building);
         queryWrapper.eq(OrderWaterRecord::getRoom,room);
+        queryWrapper.orderByDesc(OrderWaterRecord::getTime);
+        queryWrapper.last("limit 7");
         List<OrderWaterRecord> result =  orderWaterRecordService.list(queryWrapper);
         return Result.success(result,"查询成功");
     }
 
+    //新增订水记录
     @PostMapping("/add")
     public Result<OrderWaterRecord> add (@RequestBody OrderWaterRecord orderWaterRecord){
 //        String sid = map.get("sid").toString();

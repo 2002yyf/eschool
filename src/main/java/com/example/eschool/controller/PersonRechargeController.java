@@ -2,6 +2,7 @@ package com.example.eschool.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.example.eschool.domain.PersonMaintenance;
 import com.example.eschool.domain.PersonRecharge;
 import com.example.eschool.service.PersonRechargeService;
 import com.example.eschool.utils.Result;
@@ -28,10 +29,12 @@ public class PersonRechargeController {
         LambdaQueryWrapper<PersonRecharge> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(PersonRecharge::getSid,sid);
         queryWrapper.eq(PersonRecharge::getType,type);
+        queryWrapper.orderByDesc(PersonRecharge::getTime);
+        queryWrapper.last("limit 7");
         List<PersonRecharge> result =  personRechargeService.list(queryWrapper);
         return Result.success(result,"查询成功");
     }
-
+    //新增一卡通或热水充值记录
     @PostMapping("/add")
     public Result<PersonRecharge> add (@RequestBody PersonRecharge personRecharge){
 //        String sid = map.get("sid").toString();

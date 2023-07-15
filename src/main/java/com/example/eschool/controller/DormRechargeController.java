@@ -3,6 +3,7 @@ package com.example.eschool.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.example.eschool.domain.DormRecharge;
+import com.example.eschool.domain.PersonMaintenance;
 import com.example.eschool.domain.PersonRecharge;
 import com.example.eschool.service.DormRechargeService;
 import com.example.eschool.service.PersonRechargeService;
@@ -32,6 +33,8 @@ public class DormRechargeController {
         queryWrapper.eq(DormRecharge::getBuilding,building);
         queryWrapper.eq(DormRecharge::getRoom,room);
         queryWrapper.eq(DormRecharge::getType,type);
+        queryWrapper.orderByDesc(DormRecharge::getTime);
+        queryWrapper.last("limit 7");
         List<DormRecharge> result =  dormRechargeService.list(queryWrapper);
         return Result.success(result,"查询成功");
     }
