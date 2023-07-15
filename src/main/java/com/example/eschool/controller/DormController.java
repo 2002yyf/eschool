@@ -42,7 +42,7 @@ public class DormController {
     }
 
     //查询水电费
-    @GetMapping("/inquire")
+    @PostMapping("/inquire")
     public Result<Dorm> inquire(@RequestBody Map map){
         String building = map.get("building").toString();
         String room = map.get("room").toString();

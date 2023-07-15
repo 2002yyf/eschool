@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 14/07/2023 10:55:27
+ Date: 15/07/2023 09:16:44
 */
 
 SET NAMES utf8mb4;
@@ -80,6 +80,28 @@ INSERT INTO `dorm_recharge` VALUES (4, '3', '202', '水', 60.3, '李四', '2023-
 INSERT INTO `dorm_recharge` VALUES (5, '3', '202', '水', 35.2, NULL, '2023-07-14 10:52:03');
 INSERT INTO `dorm_recharge` VALUES (6, '3', '202', '水', 35.2, '张三', '2023-07-14 10:52:17');
 INSERT INTO `dorm_recharge` VALUES (7, '3', '202', '水', 35.2, '张三', '2023-07-14 10:52:47');
+INSERT INTO `dorm_recharge` VALUES (8, '3', '202', '水', 35.2, '张三', '2023-07-15 09:11:49');
+
+-- ----------------------------
+-- Table structure for order_water_record
+-- ----------------------------
+DROP TABLE IF EXISTS `order_water_record`;
+CREATE TABLE `order_water_record`  (
+  `rid` int(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `buyer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '购买人',
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '联系电话',
+  `building` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '楼号',
+  `room` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '宿舍号',
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '订水类型',
+  `number` int(0) NULL DEFAULT NULL COMMENT '购买数量',
+  `time` datetime(0) NULL DEFAULT NULL COMMENT '购买时间',
+  PRIMARY KEY (`rid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of order_water_record
+-- ----------------------------
+INSERT INTO `order_water_record` VALUES (1, '张三', '10086', '3', '202', '农夫山泉', 1, '2023-07-15 09:05:47');
 
 -- ----------------------------
 -- Table structure for person_recharge
@@ -118,7 +140,7 @@ CREATE TABLE `student`  (
   `hot_water` double(255, 1) NULL DEFAULT NULL COMMENT '热水余额',
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '电话',
   PRIMARY KEY (`sid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of student
