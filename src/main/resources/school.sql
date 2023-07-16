@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 15/07/2023 11:54:51
+ Date: 16/07/2023 09:40:31
 */
 
 SET NAMES utf8mb4;
@@ -28,7 +28,7 @@ CREATE TABLE `business`  (
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '类型',
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '地址',
   PRIMARY KEY (`bid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of business
@@ -40,6 +40,63 @@ INSERT INTO `business` VALUES (10, '123', '商户4', '糕点', '商铺104');
 INSERT INTO `business` VALUES (11, '123', '商户5', '糕点', '商铺105');
 INSERT INTO `business` VALUES (12, '123', '商户6', '糕点', '商铺106');
 INSERT INTO `business` VALUES (13, '123', '商户7', '奶茶', '商铺107');
+
+-- ----------------------------
+-- Table structure for consumer_record
+-- ----------------------------
+DROP TABLE IF EXISTS `consumer_record`;
+CREATE TABLE `consumer_record`  (
+  `cid` int(0) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `sid` int(0) NULL DEFAULT NULL COMMENT '消费者',
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '消费类型',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '消费地点',
+  `amount` double(10, 1) NULL DEFAULT NULL COMMENT '金额',
+  `time` datetime(0) NULL DEFAULT NULL COMMENT '时间',
+  PRIMARY KEY (`cid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of consumer_record
+-- ----------------------------
+INSERT INTO `consumer_record` VALUES (1, 20052319, '餐饮', '餐厅3', 21.1, '2023-01-08 14:32:52');
+INSERT INTO `consumer_record` VALUES (2, 20052318, '水果', '餐厅3', 19.2, '2023-03-03 02:08:42');
+INSERT INTO `consumer_record` VALUES (3, 20052318, '餐饮', '餐厅1', 27.7, '2023-06-05 17:38:36');
+INSERT INTO `consumer_record` VALUES (4, 20052319, '餐饮', '餐厅1', 20.3, '2023-02-13 20:19:48');
+INSERT INTO `consumer_record` VALUES (5, 20052317, '水果', '餐厅2', 26.2, '2023-04-10 09:15:45');
+INSERT INTO `consumer_record` VALUES (6, 20052319, '餐饮', '餐厅1', 20.1, '2023-04-08 18:09:36');
+INSERT INTO `consumer_record` VALUES (7, 20052319, '水果', '餐厅1', 24.8, '2023-02-10 04:16:28');
+INSERT INTO `consumer_record` VALUES (8, 20052319, '餐饮', '餐厅3', 17.3, '2023-06-05 07:38:07');
+INSERT INTO `consumer_record` VALUES (9, 20052318, '水果', '餐厅2', 15.3, '2023-03-26 18:49:50');
+INSERT INTO `consumer_record` VALUES (10, 20052318, '甜品', '餐厅3', 22.6, '2023-05-29 01:52:23');
+INSERT INTO `consumer_record` VALUES (11, 20052319, '水果', '餐厅1', 20.1, '2023-01-24 14:59:11');
+INSERT INTO `consumer_record` VALUES (12, 20052317, '水果', '餐厅2', 20.9, '2023-07-07 10:25:59');
+INSERT INTO `consumer_record` VALUES (13, 20052320, '水果', '餐厅1', 17.0, '2023-04-29 14:43:49');
+INSERT INTO `consumer_record` VALUES (14, 20052317, '甜品', '餐厅3', 14.1, '2023-06-27 19:04:56');
+INSERT INTO `consumer_record` VALUES (15, 20052320, '甜品', '餐厅1', 25.5, '2023-03-04 03:11:54');
+INSERT INTO `consumer_record` VALUES (16, 20052317, '餐饮', '餐厅3', 21.0, '2023-05-23 18:39:41');
+INSERT INTO `consumer_record` VALUES (17, 20052319, '餐饮', '餐厅3', 24.8, '2023-01-22 15:29:01');
+INSERT INTO `consumer_record` VALUES (18, 20052320, '甜品', '餐厅1', 17.4, '2023-07-10 11:00:16');
+INSERT INTO `consumer_record` VALUES (19, 20052318, '餐饮', '餐厅1', 19.9, '2023-03-12 13:21:13');
+INSERT INTO `consumer_record` VALUES (20, 20052317, '水果', '餐厅3', 14.9, '2023-07-30 12:50:07');
+INSERT INTO `consumer_record` VALUES (21, 20052320, '水果', '餐厅1', 23.9, '2023-04-28 00:31:24');
+INSERT INTO `consumer_record` VALUES (22, 20052320, '甜品', '餐厅2', 29.0, '2023-07-14 12:55:26');
+INSERT INTO `consumer_record` VALUES (23, 20052318, '餐饮', '餐厅2', 11.2, '2023-02-24 13:13:35');
+INSERT INTO `consumer_record` VALUES (24, 20052318, '甜品', '餐厅1', 25.6, '2023-06-08 20:54:04');
+INSERT INTO `consumer_record` VALUES (25, 20052319, '水果', '餐厅3', 21.3, '2023-05-24 23:04:39');
+INSERT INTO `consumer_record` VALUES (26, 20052317, '甜品', '餐厅2', 15.7, '2023-06-03 22:37:10');
+INSERT INTO `consumer_record` VALUES (27, 20052318, '水果', '餐厅3', 26.7, '2023-02-09 15:05:03');
+INSERT INTO `consumer_record` VALUES (28, 20052317, '餐饮', '餐厅2', 18.7, '2023-01-04 00:28:24');
+INSERT INTO `consumer_record` VALUES (29, 20052319, '餐饮', '餐厅1', 21.4, '2023-03-08 16:02:18');
+INSERT INTO `consumer_record` VALUES (30, 20052318, '甜品', '餐厅1', 29.4, '2023-03-25 09:35:58');
+INSERT INTO `consumer_record` VALUES (31, 20052317, '水果', '餐厅2', 27.5, '2023-04-14 23:07:33');
+INSERT INTO `consumer_record` VALUES (32, 20052319, '餐饮', '餐厅3', 26.2, '2023-04-07 16:00:49');
+INSERT INTO `consumer_record` VALUES (33, 20052319, '甜品', '餐厅2', 11.1, '2023-06-17 05:31:44');
+INSERT INTO `consumer_record` VALUES (34, 20052320, '餐饮', '餐厅3', 22.5, '2023-04-03 11:46:46');
+INSERT INTO `consumer_record` VALUES (35, 20052319, '甜品', '餐厅3', 27.5, '2023-04-17 16:51:19');
+INSERT INTO `consumer_record` VALUES (36, 20052320, '餐饮', '餐厅3', 24.8, '2023-07-01 15:48:11');
+INSERT INTO `consumer_record` VALUES (37, 20052318, '餐饮', '餐厅3', 21.1, '2023-05-07 00:50:21');
+INSERT INTO `consumer_record` VALUES (38, 20052320, '甜品', '餐厅1', 16.6, '2023-03-22 16:19:13');
+INSERT INTO `consumer_record` VALUES (39, 20052318, '餐饮', '餐厅2', 21.4, '2023-07-16 01:04:53');
 
 -- ----------------------------
 -- Table structure for dorm
@@ -57,7 +114,7 @@ CREATE TABLE `dorm`  (
 -- ----------------------------
 -- Records of dorm
 -- ----------------------------
-INSERT INTO `dorm` VALUES (2, 1, 101, 234.3, 262.2);
+INSERT INTO `dorm` VALUES (2, 1, 101, 234.3, 272.2);
 INSERT INTO `dorm` VALUES (3, 1, 102, 227.2, 270.3);
 INSERT INTO `dorm` VALUES (4, 1, 103, 229.1, 212.7);
 INSERT INTO `dorm` VALUES (5, 1, 104, 237.4, 211.0);
@@ -167,6 +224,8 @@ INSERT INTO `dorm_maintenance` VALUES (58, '1', '303', '洗衣机', NULL, '15206
 INSERT INTO `dorm_maintenance` VALUES (59, '1', '303', '衣柜', NULL, '15198536870', '2023-03-04 19:28:43');
 INSERT INTO `dorm_maintenance` VALUES (60, '1', '202', '洗衣机', NULL, '15168558291', '2023-02-03 11:01:26');
 INSERT INTO `dorm_maintenance` VALUES (61, '1', '101', '窗户', '窗户裂开了，漏风', '15177080670', '2023-07-15 11:08:20');
+INSERT INTO `dorm_maintenance` VALUES (62, '4', '103', '电器', '', '10086', '2023-07-16 08:47:14');
+INSERT INTO `dorm_maintenance` VALUES (63, '1', '101', '水管', '', '10086', '2023-07-16 08:47:28');
 
 -- ----------------------------
 -- Table structure for dorm_recharge
@@ -186,14 +245,15 @@ CREATE TABLE `dorm_recharge`  (
 -- ----------------------------
 -- Records of dorm_recharge
 -- ----------------------------
-INSERT INTO `dorm_recharge` VALUES (1, '3', '202', '水', 50.0, '张三', '2023-07-14 10:40:37');
-INSERT INTO `dorm_recharge` VALUES (2, '3', '202', '电', 62.3, '李四', '2023-07-12 10:40:57');
-INSERT INTO `dorm_recharge` VALUES (3, '2', '202', '水', 60.3, '王五', '2023-07-06 10:41:18');
-INSERT INTO `dorm_recharge` VALUES (4, '3', '202', '水', 60.3, '李四', '2023-07-03 10:41:32');
-INSERT INTO `dorm_recharge` VALUES (5, '3', '202', '水', 35.2, NULL, '2023-07-14 10:52:03');
-INSERT INTO `dorm_recharge` VALUES (6, '3', '202', '水', 35.2, '张三', '2023-07-14 10:52:17');
-INSERT INTO `dorm_recharge` VALUES (7, '3', '202', '水', 35.2, '张三', '2023-07-14 10:52:47');
+INSERT INTO `dorm_recharge` VALUES (1, '1', '101', '水', 50.0, '张三', '2023-07-14 10:40:37');
+INSERT INTO `dorm_recharge` VALUES (2, '1', '101', '电', 62.3, '李四', '2023-07-12 10:40:57');
+INSERT INTO `dorm_recharge` VALUES (3, '1', '101', '水', 60.3, '王五', '2023-07-06 10:41:18');
+INSERT INTO `dorm_recharge` VALUES (4, '1', '101', '水', 60.3, '李四', '2023-07-03 10:41:32');
+INSERT INTO `dorm_recharge` VALUES (5, '3', '101', '水', 35.2, NULL, '2023-07-14 10:52:03');
+INSERT INTO `dorm_recharge` VALUES (6, '1', '101', '水', 35.2, '张三', '2023-07-14 10:52:17');
+INSERT INTO `dorm_recharge` VALUES (7, '1', '202', '水', 35.2, '张三', '2023-07-14 10:52:47');
 INSERT INTO `dorm_recharge` VALUES (8, '3', '202', '水', 35.2, '张三', '2023-07-15 09:11:49');
+INSERT INTO `dorm_recharge` VALUES (9, '1', '101', '电', 10.0, '张三', '2023-07-16 08:46:22');
 
 -- ----------------------------
 -- Table structure for order_water_record
@@ -343,6 +403,23 @@ INSERT INTO `person_recharge` VALUES (41, 14, '一卡通', 57.5, '2022-10-19 06:
 INSERT INTO `person_recharge` VALUES (42, 5, '一卡通', 50.8, '2023-07-13 23:04:35');
 INSERT INTO `person_recharge` VALUES (43, 11, '一卡通', 51.0, '2023-05-12 02:33:30');
 INSERT INTO `person_recharge` VALUES (44, 2, '热水', 55.4, '2022-10-24 23:57:12');
+INSERT INTO `person_recharge` VALUES (45, 1, '热水', 250.0, '2023-07-16 08:43:08');
+INSERT INTO `person_recharge` VALUES (46, 1, '热水', 100.0, '2023-07-16 08:43:11');
+INSERT INTO `person_recharge` VALUES (47, 1, '热水', 150.0, '2023-07-16 08:43:13');
+INSERT INTO `person_recharge` VALUES (48, 1, '热水', 200.0, '2023-07-16 08:43:15');
+INSERT INTO `person_recharge` VALUES (49, 1, '热水', 10.0, '2023-07-16 08:44:49');
+INSERT INTO `person_recharge` VALUES (50, 1, '热水', 10.0, '2023-07-16 08:44:50');
+INSERT INTO `person_recharge` VALUES (51, 1, '热水', 10.0, '2023-07-16 08:44:50');
+INSERT INTO `person_recharge` VALUES (52, 1, '热水', 10.0, '2023-07-16 08:44:50');
+INSERT INTO `person_recharge` VALUES (53, 1, '热水', 10.0, '2023-07-16 08:44:50');
+INSERT INTO `person_recharge` VALUES (54, 1, '热水', 10.0, '2023-07-16 08:44:50');
+INSERT INTO `person_recharge` VALUES (55, 1, '热水', 10.0, '2023-07-16 08:44:50');
+INSERT INTO `person_recharge` VALUES (56, 1, '热水', 100.0, '2023-07-16 08:44:59');
+INSERT INTO `person_recharge` VALUES (57, 20052319, '一卡通', 250.0, '2023-07-16 08:46:00');
+INSERT INTO `person_recharge` VALUES (58, 20052319, '一卡通', 50.0, '2023-07-16 08:46:05');
+INSERT INTO `person_recharge` VALUES (59, 20052319, '一卡通', 150.0, '2023-07-16 08:46:08');
+INSERT INTO `person_recharge` VALUES (60, 20052319, '热水', 20.0, '2023-07-16 08:46:36');
+INSERT INTO `person_recharge` VALUES (61, 20052319, '热水', 50.0, '2023-07-16 08:46:40');
 
 -- ----------------------------
 -- Table structure for student
@@ -364,10 +441,10 @@ CREATE TABLE `student`  (
 -- ----------------------------
 -- Records of student
 -- ----------------------------
-INSERT INTO `student` VALUES (1, '张三', '123', '2020', '4', '503', 363.8, 1909.0, '10086');
 INSERT INTO `student` VALUES (2, '李四', '456', '2021', '5', '602', 345.3, 20.3, '10087');
 INSERT INTO `student` VALUES (6, '王五', '123', '2022', '6', '102', 65.0, 35.0, '10088');
 INSERT INTO `student` VALUES (20052317, '学生2', 'password', '2020', '5', '103', 197.1, 28.8, '15249291795');
+INSERT INTO `student` VALUES (20052319, '张三', '123', '2020', '1', '101', 1513.8, 2149.0, '10086');
 INSERT INTO `student` VALUES (20052390, '学生12', 'password', '2020', '3', '101', 234.0, 11.6, '15867354230');
 INSERT INTO `student` VALUES (20052430, '学生6', 'password', '2023', '1', '203', 205.3, 14.3, '15464746837');
 INSERT INTO `student` VALUES (20052461, '学生9', 'password', '2020', '1', '505', 288.3, 24.8, '15671513606');

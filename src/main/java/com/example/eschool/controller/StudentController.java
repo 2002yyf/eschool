@@ -83,8 +83,6 @@ public class StudentController {
         if(stu == null){
             return Result.error("0","无此学生");
         }
-        System.out.println(amount);
-        System.out.println(stu.getCardAmount());
         if(type.equals("一卡通")){
             stu.setCardAmount(stu.getCardAmount()+amount);
         }
