@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 16/07/2023 09:40:31
+ Date: 16/07/2023 10:59:27
 */
 
 SET NAMES utf8mb4;
@@ -109,7 +109,7 @@ CREATE TABLE `dorm`  (
   `water` double(255, 1) NULL DEFAULT NULL COMMENT '水费',
   `electricity` double(255, 1) NULL DEFAULT NULL COMMENT '电费',
   PRIMARY KEY (`dormid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dorm
@@ -158,7 +158,7 @@ CREATE TABLE `dorm_maintenance`  (
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '联系电话',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '保修时间',
   PRIMARY KEY (`mid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dorm_maintenance
@@ -256,6 +256,99 @@ INSERT INTO `dorm_recharge` VALUES (8, '3', '202', '水', 35.2, '张三', '2023-
 INSERT INTO `dorm_recharge` VALUES (9, '1', '101', '电', 10.0, '张三', '2023-07-16 08:46:22');
 
 -- ----------------------------
+-- Table structure for legwork
+-- ----------------------------
+DROP TABLE IF EXISTS `legwork`;
+CREATE TABLE `legwork`  (
+  `hid` int(0) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '类型',
+  `time` datetime(0) NULL DEFAULT NULL COMMENT '发布时间',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '状态',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '描述',
+  `destination` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '目的地',
+  `amount` double(10, 1) NULL DEFAULT NULL COMMENT '金额',
+  `publisherid` int(0) NULL DEFAULT NULL COMMENT '发布人',
+  `selectorid` int(0) NULL DEFAULT NULL COMMENT '接收人',
+  PRIMARY KEY (`hid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of legwork
+-- ----------------------------
+INSERT INTO `legwork` VALUES (1, '买饭', '2023-07-16 10:41:59', '待帮助', '帮我买一份鱼香肉丝盖饭', '1号楼101', 2.0, 1, 3);
+INSERT INTO `legwork` VALUES (2, '买饭', '2023-07-16 10:41:59', '已完成', '帮我买一份鱼香肉丝盖饭', '1号楼101', 2.0, 3, 1);
+INSERT INTO `legwork` VALUES (3, '带药', '2023-07-05 21:30:04', '待帮助', '帮忙带一下，谢谢大伙', '1号楼101', 5.3, 4, 14);
+INSERT INTO `legwork` VALUES (4, '带水果', '2023-03-04 12:29:33', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 5.4, 5, 15);
+INSERT INTO `legwork` VALUES (5, '带饭', '2023-04-24 16:00:03', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 3.8, 5, 13);
+INSERT INTO `legwork` VALUES (6, '带药', '2023-06-04 03:14:22', '待帮助', '帮忙带一下，谢谢大伙', '1号楼103', 3.3, 3, 11);
+INSERT INTO `legwork` VALUES (7, '带药', '2023-01-24 07:48:03', '已完成', '帮忙带一下，谢谢大伙', '1号楼103', 2.2, 4, 10);
+INSERT INTO `legwork` VALUES (8, '带饭', '2023-02-07 09:05:09', '待帮助', '帮忙带一下，谢谢大伙', '1号楼103', 5.8, 2, 13);
+INSERT INTO `legwork` VALUES (9, '带饭', '2023-04-25 01:26:33', '待帮助', '帮忙带一下，谢谢大伙', '1号楼104', 5.7, 2, 13);
+INSERT INTO `legwork` VALUES (10, '带药', '2023-03-04 13:23:44', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 3.5, 1, 15);
+INSERT INTO `legwork` VALUES (11, '带饭', '2023-03-15 06:26:27', '待帮助', '帮忙带一下，谢谢大伙', '1号楼103', 3.0, 2, 13);
+INSERT INTO `legwork` VALUES (12, '带药', '2023-06-04 19:46:41', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 5.3, 3, 12);
+INSERT INTO `legwork` VALUES (13, '带水果', '2023-04-12 10:21:16', '待帮助', '帮忙带一下，谢谢大伙', '2号楼102', 4.0, 2, 13);
+INSERT INTO `legwork` VALUES (14, '带药', '2023-05-20 01:20:22', '待帮助', '帮忙带一下，谢谢大伙', '1号楼103', 4.5, 2, 14);
+INSERT INTO `legwork` VALUES (15, '带药', '2023-06-06 08:14:21', '待帮助', '帮忙带一下，谢谢大伙', '1号楼101', 5.9, 5, 15);
+INSERT INTO `legwork` VALUES (16, '带饭', '2023-04-09 19:40:43', '已完成', '帮忙带一下，谢谢大伙', '1号楼103', 4.2, 4, 14);
+INSERT INTO `legwork` VALUES (17, '带饭', '2023-03-28 08:19:03', '待帮助', '帮忙带一下，谢谢大伙', '1号楼105', 3.5, 3, 14);
+INSERT INTO `legwork` VALUES (18, '带药', '2023-03-06 20:44:23', '已完成', '帮忙带一下，谢谢大伙', '1号楼105', 3.7, 1, 14);
+INSERT INTO `legwork` VALUES (19, '带药', '2023-04-10 21:00:38', '待帮助', '帮忙带一下，谢谢大伙', '1号楼104', 4.9, 5, 15);
+INSERT INTO `legwork` VALUES (20, '带饭', '2023-04-12 06:40:59', '已完成', '帮忙带一下，谢谢大伙', '1号楼105', 5.4, 2, 10);
+INSERT INTO `legwork` VALUES (21, '带饭', '2023-04-17 04:36:57', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 2.5, 4, 10);
+INSERT INTO `legwork` VALUES (22, '带水果', '2023-03-27 08:26:06', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 2.6, 1, 10);
+INSERT INTO `legwork` VALUES (23, '带药', '2023-06-28 03:36:11', '已完成', '帮忙带一下，谢谢大伙', '1号楼103', 5.3, 3, 13);
+INSERT INTO `legwork` VALUES (24, '带饭', '2023-03-27 19:37:17', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 4.3, 4, 12);
+INSERT INTO `legwork` VALUES (25, '带水果', '2023-05-02 20:05:35', '已完成', '帮忙带一下，谢谢大伙', '2号楼102', 4.4, 1, 11);
+INSERT INTO `legwork` VALUES (26, '带水果', '2023-02-05 02:00:49', '待帮助', '帮忙带一下，谢谢大伙', '1号楼105', 3.2, 3, 10);
+INSERT INTO `legwork` VALUES (27, '带饭', '2023-06-07 04:54:55', '待帮助', '帮忙带一下，谢谢大伙', '1号楼105', 2.4, 3, 14);
+INSERT INTO `legwork` VALUES (28, '带水果', '2023-04-05 00:07:41', '待帮助', '帮忙带一下，谢谢大伙', '1号楼105', 3.9, 1, 12);
+INSERT INTO `legwork` VALUES (29, '带水果', '2023-07-10 05:11:46', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 2.5, 1, 14);
+INSERT INTO `legwork` VALUES (30, '带药', '2023-01-25 06:54:01', '待帮助', '帮忙带一下，谢谢大伙', '1号楼104', 2.4, 2, 14);
+INSERT INTO `legwork` VALUES (31, '带饭', '2023-05-01 17:52:01', '已完成', '帮忙带一下，谢谢大伙', '1号楼103', 2.8, 2, 15);
+INSERT INTO `legwork` VALUES (32, '带水果', '2023-01-09 08:13:17', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 4.7, 3, 13);
+INSERT INTO `legwork` VALUES (33, '带水果', '2023-03-17 22:46:07', '待帮助', '帮忙带一下，谢谢大伙', '1号楼105', 4.7, 4, 14);
+INSERT INTO `legwork` VALUES (34, '带饭', '2023-02-17 11:18:59', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 4.9, 1, 14);
+INSERT INTO `legwork` VALUES (35, '带药', '2023-01-11 14:11:22', '待帮助', '帮忙带一下，谢谢大伙', '1号楼101', 2.6, 3, 10);
+INSERT INTO `legwork` VALUES (36, '带水果', '2023-01-01 08:08:55', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 3.1, 3, 12);
+INSERT INTO `legwork` VALUES (37, '带水果', '2023-01-01 11:39:26', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 3.6, 5, 15);
+INSERT INTO `legwork` VALUES (38, '带水果', '2023-04-13 16:35:23', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 2.3, 4, 14);
+INSERT INTO `legwork` VALUES (39, '带水果', '2023-05-12 18:56:02', '待帮助', '帮忙带一下，谢谢大伙', '1号楼105', 2.0, 1, 15);
+INSERT INTO `legwork` VALUES (40, '带水果', '2023-04-25 14:35:50', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 3.5, 3, 15);
+INSERT INTO `legwork` VALUES (41, '带水果', '2023-02-17 14:51:06', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 4.3, 5, 13);
+INSERT INTO `legwork` VALUES (42, '带药', '2023-05-04 12:51:27', '已完成', '帮忙带一下，谢谢大伙', '1号楼103', 3.6, 2, 10);
+INSERT INTO `legwork` VALUES (43, '带水果', '2023-07-20 04:28:27', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 2.2, 5, 12);
+INSERT INTO `legwork` VALUES (44, '带水果', '2023-03-21 12:49:16', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 3.1, 2, 15);
+INSERT INTO `legwork` VALUES (45, '带饭', '2023-03-19 19:34:15', '已完成', '帮忙带一下，谢谢大伙', '1号楼104', 2.1, 5, 13);
+INSERT INTO `legwork` VALUES (46, '带饭', '2023-04-22 21:33:24', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 5.4, 2, 14);
+INSERT INTO `legwork` VALUES (47, '带药', '2023-01-31 14:29:12', '已完成', '帮忙带一下，谢谢大伙', '1号楼104', 5.2, 2, 13);
+INSERT INTO `legwork` VALUES (48, '带饭', '2023-01-12 18:09:32', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 5.9, 2, 14);
+INSERT INTO `legwork` VALUES (49, '带水果', '2023-03-13 04:18:27', '待帮助', '帮忙带一下，谢谢大伙', '1号楼104', 2.7, 3, 10);
+INSERT INTO `legwork` VALUES (50, '带饭', '2023-05-01 16:09:53', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 3.3, 3, 13);
+INSERT INTO `legwork` VALUES (51, '带药', '2023-07-16 15:57:25', '已完成', '帮忙带一下，谢谢大伙', '1号楼105', 6.0, 2, 10);
+INSERT INTO `legwork` VALUES (52, '带水果', '2023-04-03 05:51:55', '待帮助', '帮忙带一下，谢谢大伙', '1号楼104', 5.2, 2, 14);
+INSERT INTO `legwork` VALUES (53, '带水果', '2023-05-02 14:57:26', '已完成', '帮忙带一下，谢谢大伙', '1号楼103', 3.8, 3, 13);
+INSERT INTO `legwork` VALUES (54, '带饭', '2023-01-01 04:14:33', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 3.2, 5, 12);
+INSERT INTO `legwork` VALUES (55, '带药', '2023-02-09 23:47:48', '已完成', '帮忙带一下，谢谢大伙', '1号楼105', 4.1, 1, 11);
+INSERT INTO `legwork` VALUES (56, '带饭', '2023-03-07 14:11:40', '已完成', '帮忙带一下，谢谢大伙', '1号楼104', 4.1, 4, 12);
+INSERT INTO `legwork` VALUES (57, '带药', '2023-07-05 13:02:01', '待帮助', '帮忙带一下，谢谢大伙', '1号楼101', 3.9, 4, 11);
+INSERT INTO `legwork` VALUES (58, '带水果', '2023-02-05 03:05:42', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 2.5, 3, 13);
+INSERT INTO `legwork` VALUES (59, '带水果', '2023-06-02 23:16:15', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 2.4, 4, 10);
+INSERT INTO `legwork` VALUES (60, '带饭', '2023-03-03 14:26:46', '待帮助', '帮忙带一下，谢谢大伙', '1号楼105', 4.1, 2, 15);
+INSERT INTO `legwork` VALUES (61, '带水果', '2023-05-23 04:18:03', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 2.3, 4, 12);
+INSERT INTO `legwork` VALUES (62, '带饭', '2023-01-05 04:51:20', '待帮助', '帮忙带一下，谢谢大伙', '1号楼103', 5.7, 3, 14);
+INSERT INTO `legwork` VALUES (63, '带饭', '2023-06-29 11:18:53', '已完成', '帮忙带一下，谢谢大伙', '1号楼105', 3.5, 5, 12);
+INSERT INTO `legwork` VALUES (64, '带饭', '2023-06-24 22:14:45', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 4.6, 5, 13);
+INSERT INTO `legwork` VALUES (65, '带药', '2023-03-30 03:09:37', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 2.1, 4, 12);
+INSERT INTO `legwork` VALUES (66, '带水果', '2023-04-20 14:28:03', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 3.5, 3, 11);
+INSERT INTO `legwork` VALUES (67, '带药', '2023-04-05 00:58:10', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 2.6, 5, 13);
+INSERT INTO `legwork` VALUES (68, '带药', '2023-04-22 08:13:05', '待帮助', '帮忙带一下，谢谢大伙', '1号楼103', 2.7, 5, 14);
+INSERT INTO `legwork` VALUES (69, '带饭', '2023-05-19 12:21:34', '待帮助', '帮忙带一下，谢谢大伙', '1号楼101', 5.6, 2, 14);
+INSERT INTO `legwork` VALUES (70, '带饭', '2023-03-04 13:34:43', '待帮助', '帮忙带一下，谢谢大伙', '2号楼102', 5.7, 1, 10);
+INSERT INTO `legwork` VALUES (71, '带饭', '2023-06-18 05:23:51', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 5.5, 1, 15);
+INSERT INTO `legwork` VALUES (72, '带饭', '2023-07-24 02:37:09', '待帮助', '帮忙带一下，谢谢大伙', '2号楼102', 5.1, 3, 12);
+
+-- ----------------------------
 -- Table structure for order_water_record
 -- ----------------------------
 DROP TABLE IF EXISTS `order_water_record`;
@@ -320,7 +413,7 @@ CREATE TABLE `person_maintenance`  (
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '联系电话',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '时间',
   PRIMARY KEY (`mid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of person_maintenance
@@ -368,7 +461,7 @@ CREATE TABLE `person_recharge`  (
   `amount` double(10, 1) NULL DEFAULT NULL COMMENT '充值金额',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '充值时间',
   PRIMARY KEY (`rid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of person_recharge
