@@ -92,4 +92,21 @@ public class StudentController {
         studentService.updateById(stu);
         return Result.success(stu,"充值成功");
     }
+
+    //修改个人信息
+    @PostMapping("/editInformation")
+    public Result<Student> editInformation(@RequestBody Student student){
+//        String sid = map.get("sid").toString();
+//        String password = map.get("password").toString();
+//        LambdaQueryWrapper queryWrapper = new LambdaQueryWrapper<>();
+//        queryWrapper.eq(Student::
+
+        String sid = student.getSid().toString();
+        LambdaQueryWrapper<Student> queryWrapper = new LambdaQueryWrapper<>();
+//        queryWrapper.eq(Student::getSid,sid);
+
+        studentService.updateById(student);
+        return Result.success(student);
+    }
+
 }
