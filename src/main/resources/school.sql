@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 16/07/2023 10:59:27
+ Date: 17/07/2023 09:22:17
 */
 
 SET NAMES utf8mb4;
@@ -53,7 +53,7 @@ CREATE TABLE `consumer_record`  (
   `amount` double(10, 1) NULL DEFAULT NULL COMMENT '金额',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '时间',
   PRIMARY KEY (`cid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of consumer_record
@@ -240,7 +240,7 @@ CREATE TABLE `dorm_recharge`  (
   `buyer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '充值的人',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '充值时间',
   PRIMARY KEY (`rid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dorm_recharge
@@ -277,7 +277,7 @@ CREATE TABLE `legwork`  (
 -- ----------------------------
 INSERT INTO `legwork` VALUES (1, '买饭', '2023-07-16 10:41:59', '待帮助', '帮我买一份鱼香肉丝盖饭', '1号楼101', 2.0, 1, 3);
 INSERT INTO `legwork` VALUES (2, '买饭', '2023-07-16 10:41:59', '已完成', '帮我买一份鱼香肉丝盖饭', '1号楼101', 2.0, 3, 1);
-INSERT INTO `legwork` VALUES (3, '带药', '2023-07-05 21:30:04', '待帮助', '帮忙带一下，谢谢大伙', '1号楼101', 5.3, 4, 14);
+INSERT INTO `legwork` VALUES (3, '带药', '2023-07-05 21:30:04', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 5.3, 4, 14);
 INSERT INTO `legwork` VALUES (4, '带水果', '2023-03-04 12:29:33', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 5.4, 5, 15);
 INSERT INTO `legwork` VALUES (5, '带饭', '2023-04-24 16:00:03', '已完成', '帮忙带一下，谢谢大伙', '2号楼101', 3.8, 5, 13);
 INSERT INTO `legwork` VALUES (6, '带药', '2023-06-04 03:14:22', '待帮助', '帮忙带一下，谢谢大伙', '1号楼103', 3.3, 3, 11);
@@ -317,7 +317,7 @@ INSERT INTO `legwork` VALUES (39, '带水果', '2023-05-12 18:56:02', '待帮助
 INSERT INTO `legwork` VALUES (40, '带水果', '2023-04-25 14:35:50', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 3.5, 3, 15);
 INSERT INTO `legwork` VALUES (41, '带水果', '2023-02-17 14:51:06', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 4.3, 5, 13);
 INSERT INTO `legwork` VALUES (42, '带药', '2023-05-04 12:51:27', '已完成', '帮忙带一下，谢谢大伙', '1号楼103', 3.6, 2, 10);
-INSERT INTO `legwork` VALUES (43, '带水果', '2023-07-20 04:28:27', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 2.2, 5, 12);
+INSERT INTO `legwork` VALUES (43, '带水果', '2023-07-20 04:28:27', '已完成', '帮我带十块钱西瓜，谢谢', '1号楼102', 2.2, 5, 12);
 INSERT INTO `legwork` VALUES (44, '带水果', '2023-03-21 12:49:16', '已完成', '帮忙带一下，谢谢大伙', '1号楼102', 3.1, 2, 15);
 INSERT INTO `legwork` VALUES (45, '带饭', '2023-03-19 19:34:15', '已完成', '帮忙带一下，谢谢大伙', '1号楼104', 2.1, 5, 13);
 INSERT INTO `legwork` VALUES (46, '带饭', '2023-04-22 21:33:24', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 5.4, 2, 14);
@@ -325,7 +325,7 @@ INSERT INTO `legwork` VALUES (47, '带药', '2023-01-31 14:29:12', '已完成', 
 INSERT INTO `legwork` VALUES (48, '带饭', '2023-01-12 18:09:32', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 5.9, 2, 14);
 INSERT INTO `legwork` VALUES (49, '带水果', '2023-03-13 04:18:27', '待帮助', '帮忙带一下，谢谢大伙', '1号楼104', 2.7, 3, 10);
 INSERT INTO `legwork` VALUES (50, '带饭', '2023-05-01 16:09:53', '已完成', '帮忙带一下，谢谢大伙', '1号楼101', 3.3, 3, 13);
-INSERT INTO `legwork` VALUES (51, '带药', '2023-07-16 15:57:25', '已完成', '帮忙带一下，谢谢大伙', '1号楼105', 6.0, 2, 10);
+INSERT INTO `legwork` VALUES (51, '带药', '2023-07-16 15:57:25', '已完成', '帮我带一些阿莫西林谢谢', '1号楼105', 6.0, 2, 10);
 INSERT INTO `legwork` VALUES (52, '带水果', '2023-04-03 05:51:55', '待帮助', '帮忙带一下，谢谢大伙', '1号楼104', 5.2, 2, 14);
 INSERT INTO `legwork` VALUES (53, '带水果', '2023-05-02 14:57:26', '已完成', '帮忙带一下，谢谢大伙', '1号楼103', 3.8, 3, 13);
 INSERT INTO `legwork` VALUES (54, '带饭', '2023-01-01 04:14:33', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 3.2, 5, 12);
@@ -346,7 +346,7 @@ INSERT INTO `legwork` VALUES (68, '带药', '2023-04-22 08:13:05', '待帮助', 
 INSERT INTO `legwork` VALUES (69, '带饭', '2023-05-19 12:21:34', '待帮助', '帮忙带一下，谢谢大伙', '1号楼101', 5.6, 2, 14);
 INSERT INTO `legwork` VALUES (70, '带饭', '2023-03-04 13:34:43', '待帮助', '帮忙带一下，谢谢大伙', '2号楼102', 5.7, 1, 10);
 INSERT INTO `legwork` VALUES (71, '带饭', '2023-06-18 05:23:51', '待帮助', '帮忙带一下，谢谢大伙', '1号楼102', 5.5, 1, 15);
-INSERT INTO `legwork` VALUES (72, '带饭', '2023-07-24 02:37:09', '待帮助', '帮忙带一下，谢谢大伙', '2号楼102', 5.1, 3, 12);
+INSERT INTO `legwork` VALUES (72, '带饭', '2023-07-24 02:37:09', '待帮助', '帮我带一份蛋炒饭谢谢', '2号楼102', 5.1, 3, 12);
 
 -- ----------------------------
 -- Table structure for order_water_record
@@ -449,6 +449,11 @@ INSERT INTO `person_maintenance` VALUES (28, '张三', 2, '电动车', NULL, '16
 INSERT INTO `person_maintenance` VALUES (29, '张三', 1, '平板', NULL, '15651811150', '2023-05-13 22:55:46');
 INSERT INTO `person_maintenance` VALUES (30, '李四', 3, '电动车', NULL, '15759561306', '2023-07-11 19:49:18');
 INSERT INTO `person_maintenance` VALUES (31, '李四', 1, '衣架', '衣架裂开了', '16103103616', '2023-07-15 10:38:14');
+INSERT INTO `person_maintenance` VALUES (32, '张三', 20052319, '自行车', '', '10086', '2023-07-17 09:16:20');
+INSERT INTO `person_maintenance` VALUES (33, '张三', 20052319, '自行车', '', '10086', '2023-07-17 09:16:23');
+INSERT INTO `person_maintenance` VALUES (34, '李四', 20052319, '自行车', '', '10086', '2023-07-17 09:16:29');
+INSERT INTO `person_maintenance` VALUES (35, '张三', 20052319, '电动车', '', '10086', '2023-07-17 09:16:41');
+INSERT INTO `person_maintenance` VALUES (36, '张三', 20052319, '手机', '', '10086', '2023-07-17 09:16:46');
 
 -- ----------------------------
 -- Table structure for person_recharge
@@ -513,6 +518,7 @@ INSERT INTO `person_recharge` VALUES (58, 20052319, '一卡通', 50.0, '2023-07-
 INSERT INTO `person_recharge` VALUES (59, 20052319, '一卡通', 150.0, '2023-07-16 08:46:08');
 INSERT INTO `person_recharge` VALUES (60, 20052319, '热水', 20.0, '2023-07-16 08:46:36');
 INSERT INTO `person_recharge` VALUES (61, 20052319, '热水', 50.0, '2023-07-16 08:46:40');
+INSERT INTO `person_recharge` VALUES (62, 20052319, '热水', 10.0, '2023-07-17 09:09:46');
 
 -- ----------------------------
 -- Table structure for student
@@ -537,8 +543,9 @@ CREATE TABLE `student`  (
 INSERT INTO `student` VALUES (2, '李四', '456', '2021', '5', '602', 345.3, 20.3, '10087');
 INSERT INTO `student` VALUES (6, '王五', '123', '2022', '6', '102', 65.0, 35.0, '10088');
 INSERT INTO `student` VALUES (20052317, '学生2', 'password', '2020', '5', '103', 197.1, 28.8, '15249291795');
-INSERT INTO `student` VALUES (20052319, '张三', '123', '2020', '1', '101', 1513.8, 2149.0, '10086');
+INSERT INTO `student` VALUES (20052319, '张三', '123', '2020', '1', '101', 1513.8, 2159.0, '10086');
 INSERT INTO `student` VALUES (20052390, '学生12', 'password', '2020', '3', '101', 234.0, 11.6, '15867354230');
+INSERT INTO `student` VALUES (20052394, '学生3', '123', '2021', '1', '202', 50.3, 10.2, '151');
 INSERT INTO `student` VALUES (20052430, '学生6', 'password', '2023', '1', '203', 205.3, 14.3, '15464746837');
 INSERT INTO `student` VALUES (20052461, '学生9', 'password', '2020', '1', '505', 288.3, 24.8, '15671513606');
 INSERT INTO `student` VALUES (20052475, '学生3', 'password', '2021', '5', '102', 105.7, 13.5, '15642477570');
